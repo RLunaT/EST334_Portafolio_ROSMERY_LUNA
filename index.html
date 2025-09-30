@@ -1,89 +1,920 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio EST334 - Rosmery Luna Turpo</title>
-  <!-- Bootstrap para diseño bonito -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Rosmery Luna Turpo - EST334 Estadística Espacial">
+    <meta name="author" content="Rosmery Luna Turpo">
+    <title>Portafolio EST334 - Rosmery Luna Turpo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --bg-hover: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .nav {
+            background: var(--bg-card);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--border);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .admin-link {
+            background: var(--danger);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .admin-link:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .about-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .about-content h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .about-intro {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-info {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 140px;
+        }
+
+        .course-info {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .course-info h2 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .course-intro {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        .course-topics {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-hover);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+
+        .topic-card:nth-child(3) {
+            border-left-color: var(--accent);
+        }
+
+        .topic-card:nth-child(4) {
+            border-left-color: var(--success);
+        }
+
+        .topic-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .topic-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .topic-content strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .topic-content p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .course-footer {
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .unit-section {
+            margin-bottom: 4rem;
+        }
+
+        .unit-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .unit-title-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .unit-number {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .unit-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            grid-column: 1 / -1;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            grid-column: 1 / -1;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .work-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.3);
+        }
+
+        .work-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            flex: 1;
+        }
+
+        .work-date {
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .work-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            border: 1px solid var(--border);
+        }
+
+        .work-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            min-width: 120px;
+        }
+
+        .btn-pdf {
+            background: #ef4444;
+            color: white;
+        }
+
+        .btn-pdf:hover {
+            background: #dc2626;
+            transform: scale(1.05);
+        }
+
+        .btn-code {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-code:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: var(--bg-card);
+            border-top: 2px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+            background: var(--bg-main);
+            transform: translateY(-2px);
+        }
+
+        .footer-copy {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-image {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .info-row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-label {
+                min-width: auto;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .unit-title {
+                font-size: 1.5rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .work-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
 </head>
 <body>
-
-  <!-- Barra de navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="#">Portafolio EST334</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#unidad1">Unidad I</a></li>
-          <li class="nav-item"><a class="nav-link" href="#unidad2">Unidad II</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Encabezado -->
-  <header class="text-center p-5 bg-light">
-    <h1>Portafolio – EST334 (2025-II)</h1>
-    <p><b>Estudiante:</b> Rosmery Luna Turpo</p>
-    <p><b>Escuela Profesional:</b> Ingeniería Estadística e Informática</p>
-    <p><b>Universidad:</b> Universidad Nacional del Altiplano – Puno</p>
-  </header>
-
-  <!-- Unidad I -->
-  <section id="unidad1" class="container my-5">
-    <h2 class="mb-4">Unidad I</h2>
-    <div class="row">
-
-      <!-- Ejemplo de card -->
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="card-title">Mapa Coroplético</h5>
-            <h6 class="card-subtitle mb-2 text-muted">10 Sept 2025</h6>
-            <p class="card-text">Visualización de un mapa coroplético de la región Puno.</p>
-            <a href="#" class="btn btn-danger">Ver PDF</a>
-            <a href="#" class="btn btn-primary">Código R</a>
-          </div>
+    <header class="header">
+        <div class="header-content">
+            <h1>Portafolio EST334</h1>
+            <p class="header-subtitle">Estadística Espacial (2025-II)</p>
         </div>
-      </div>
+    </header>
 
-      <!-- Otra card -->
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="card-title">Análisis Buffer/Overlay</h5>
-            <h6 class="card-subtitle mb-2 text-muted">12 Sept 2025</h6>
-            <p class="card-text">Aplicación de análisis espacial mediante buffer y overlay.</p>
-            <a href="#" class="btn btn-danger">Ver PDF</a>
-            <a href="#" class="btn btn-primary">Código R</a>
-          </div>
+    <nav class="nav">
+        <div class="nav-content">
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link active">Sobre Mí</a></li>
+                <li><a href="#course" class="nav-link">El Curso</a></li>
+                <li><a href="#unidad1" class="nav-link">Unidad I</a></li>
+                <li><a href="#unidad2" class="nav-link">Unidad II</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            <a href="admin.html" class="admin-link">Admin</a>
         </div>
-      </div>
+    </nav>
 
-    </div>
-  </section>
+    <main class="container">
+        <section id="about" class="about-section">
+            <div class="about-grid">
+                <div class="profile-image-container">
+                    <img src="images/profile.jpg" alt="Rosmery Luna Turpo" class="profile-image">
+                </div>
+                <div class="about-content">
+                    <h2>Sobre Mí</h2>
+                    <p class="about-intro">
+                        Soy <strong>Rosmery Luna Turpo</strong>, estudiante de la Escuela Profesional de Ingeniería Estadística e Informática en la Universidad Nacional del Altiplano - Puno. Apasionada por el análisis de datos espaciales y la visualización de información geográfica, este portafolio documenta mi aprendizaje y proyectos desarrollados durante el curso de Estadística Espacial.
+                    </p>
+                    <div class="about-info">
+                        <div class="info-row">
+                            <span class="info-label">Carrera:</span>
+                            <span>Ingeniería Estadística e Informática</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Universidad:</span>
+                            <span>Universidad Nacional del Altiplano - Puno</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Ubicación:</span>
+                            <span>Puno, Perú</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email:</span>
+                            <span>roluna@est.unap.edu.pe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Intereses:</span>
+                            <span>Análisis Espacial, R Programming, Geoestadística</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Unidad II -->
-  <section id="unidad2" class="container my-5">
-    <h2 class="mb-4">Unidad II</h2>
-    <div class="row">
-      <!-- Aquí vas agregando más cards igual que en Unidad I -->
-    </div>
-  </section>
+        <section id="course" class="course-info">
+            <h2>Sobre el Curso EST334</h2>
+            <p class="course-intro">
+                El curso de <strong class="highlight">Estadística Espacial</strong> es una asignatura fundamental en mi formación como estadística, donde aprendo a analizar datos que tienen una componente geográfica. Este curso me está permitiendo desarrollar habilidades en:
+            </p>
+            <div class="course-topics">
+                <div class="topic-card">
+                    <div class="topic-icon">🗺️</div>
+                    <div class="topic-content">
+                        <strong>Visualización de Datos Espaciales</strong>
+                        <p>Creación de mapas temáticos, coropléticos y de puntos usando R y herramientas GIS.</p>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">📊</div>
+                    <div class="topic-content">
+                        <strong>Análisis Geoestadístico</strong>
+                        <p>Aplicación de técnicas como Kriging, interpolación espacial y análisis de autocorrelación.</p>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">🔍</div>
+                    <div class="topic-content">
+                        <strong>Modelado Espacial</strong>
+                        <p>Desarrollo de modelos de regresión espacial y análisis de patrones geográficos.</p>
+                    </div>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">💻</div>
+                    <div class="topic-content">
+                        <strong>Herramientas Tecnológicas</strong>
+                        <p>Dominio de paquetes de R como sf, sp, spdep, gstat, y ggplot2.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="course-footer">
+                Este portafolio documenta mi progreso a lo largo del semestre 2025-II, mostrando los trabajos prácticos y proyectos que he desarrollado en cada unidad del curso.
+            </p>
+        </section>
 
-  <!-- Contacto -->
-  <footer id="contacto" class="bg-dark text-white text-center p-4">
-    <p><b>Contacto:</b> roluna@est.unap.edu.pe</p>
-    <p>
-      <a href="https://github.com/RLunaT" target="_blank" class="text-white me-3">GitHub</a>
-      <a href="https://linkedin.com/in/rosmery-luna-turpo-a329b532b" target="_blank" class="text-white">LinkedIn</a>
-    </p>
-    <p>© 2025 Rosmery Luna Turpo</p>
-  </footer>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalWorks">0</div>
+                <div class="stat-label">Trabajos Realizados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Unidades del Curso</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="progressPercent">0%</div>
+                <div class="stat-label">Avance del Semestre</div>
+            </div>
+        </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <section class="unit-section" id="unidad1">
+            <div class="unit-header">
+                <div class="unit-title-group">
+                    <div class="unit-number">I</div>
+                    <h2 class="unit-title">Unidad I: Fundamentos de Estadística Espacial</h2>
+                </div>
+            </div>
+            <div class="cards-grid" id="unidad1-grid">
+                <div class="loading">Cargando trabajos...</div>
+            </div>
+        </section>
+
+        <section class="unit-section" id="unidad2">
+            <div class="unit-header">
+                <div class="unit-title-group">
+                    <div class="unit-number">II</div>
+                    <h2 class="unit-title">Unidad II: Modelos Espaciales Avanzados</h2>
+                </div>
+            </div>
+            <div class="cards-grid" id="unidad2-grid">
+                <div class="loading">Cargando trabajos...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+        <div class="footer-content">
+            <h3>Contacto</h3>
+            <div class="footer-links">
+                <a href="https://github.com/RLunaT" target="_blank" class="footer-link">
+                    <span>💻</span> GitHub
+                </a>
+                <a href="https://linkedin.com/in/rosmery-luna-turpo-a329b532b" target="_blank" class="footer-link">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="mailto:roluna@est.unap.edu.pe" class="footer-link">
+                    <span>📧</span> Email
+                </a>
+            </div>
+            <p class="footer-copy">© 2025 Rosmery Luna Turpo - EST334 Estadística Espacial</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWorks();
+        });
+
+        async function loadWorks() {
+            try {
+                const response = await fetch('data/trabajos.json');
+                const data = await response.json();
+                
+                renderWorks('unidad1', data.unidad1 || []);
+                renderWorks('unidad2', data.unidad2 || []);
+                updateStats(data);
+            } catch (error) {
+                console.error('Error al cargar trabajos:', error);
+                showEmptyState('unidad1');
+                showEmptyState('unidad2');
+            }
+        }
+
+        function renderWorks(unitId, works) {
+            const grid = document.getElementById(`${unitId}-grid`);
+            grid.innerHTML = '';
+
+            if (works.length === 0) {
+                showEmptyState(unitId);
+                return;
+            }
+
+            works.forEach(work => {
+                const card = createWorkCard(work);
+                grid.appendChild(card);
+            });
+        }
+
+        function createWorkCard(work) {
+            const card = document.createElement('div');
+            card.className = 'work-card';
+            
+            const date = new Date(work.date);
+            const formattedDate = date.toLocaleDateString('es-ES', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric'
+            });
+
+            const tagsHTML = work.tags && work.tags.length > 0
+                ? `<div class="work-tags">
+                    ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                   </div>`
+                : '';
+
+            const pdfButton = work.pdfUrl
+                ? `<a href="${work.pdfUrl}" target="_blank" class="btn btn-pdf">
+                    <span>📄</span> Ver PDF
+                   </a>`
+                : '';
+
+            const codeButton = work.codeUrl
+                ? `<a href="${work.codeUrl}" target="_blank" class="btn btn-code">
+                    <span>💻</span> Código
+                   </a>`
+                : '';
+
+            card.innerHTML = `
+                <div class="work-header">
+                    <h3 class="work-title">${work.title}</h3>
+                    <span class="work-date">${formattedDate}</span>
+                </div>
+                <p class="work-description">${work.description}</p>
+                ${tagsHTML}
+                <div class="work-actions">
+                    ${pdfButton}
+                    ${codeButton}
+                </div>
+            `;
+
+            return card;
+        }
+
+        function showEmptyState(unitId) {
+            const grid = document.getElementById(`${unitId}-grid`);
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <div class="empty-state-icon">📂</div>
+                    <h3>No hay trabajos aún</h3>
+                    <p>Los trabajos de esta unidad aparecerán aquí próximamente.</p>
+                </div>
+            `;
+        }
+
+        function updateStats(data) {
+            const totalWorks = (data.unidad1?.length || 0) + (data.unidad2?.length || 0);
+            document.getElementById('totalWorks').textContent = totalWorks;
+            
+            const totalExpected = 16;
+            const percent = Math.min(100, Math.round((totalWorks / totalExpected) * 100));
+            document.getElementById('progressPercent').textContent = percent + '%';
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
