@@ -792,10 +792,10 @@
             loadWorks();
         });
 
-        async function loadWorks() {
-            try {
-                const response = await fetch('data/trabajos.json');
-                const data = await response.json();
+       async function loadWorks() {
+    try {
+        const saved = localStorage.getItem('est334_works');
+        const data = saved ? JSON.parse(saved) : { unidad1: [], unidad2: [] };
                 
                 renderWorks('unidad1', data.unidad1 || []);
                 renderWorks('unidad2', data.unidad2 || []);
