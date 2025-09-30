@@ -1,48 +1,89 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portafolio EST334 – Rosmery Luna Turpo</title>
-  <!-- Pico.css para estilo rápido y limpio -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio EST334 - Rosmery Luna Turpo</title>
+  <!-- Bootstrap para diseño bonito -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-  <main class="container">
+
+  <!-- Barra de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portafolio EST334</a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#unidad1">Unidad I</a></li>
+          <li class="nav-item"><a class="nav-link" href="#unidad2">Unidad II</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Encabezado -->
+  <header class="text-center p-5 bg-light">
     <h1>Portafolio – EST334 (2025-II)</h1>
-    <p><b>Estudiante:</b> Rosmery Luna Turpo<br>
-       <b>Escuela Profesional:</b> Ingeniería Estadística e Informática<br>
-       <b>Universidad:</b> Universidad Nacional del Altiplano – Puno
-    </p>
+    <p><b>Estudiante:</b> Rosmery Luna Turpo</p>
+    <p><b>Escuela Profesional:</b> Ingeniería Estadística e Informática</p>
+    <p><b>Universidad:</b> Universidad Nacional del Altiplano – Puno</p>
+  </header>
 
-    <h2>1) Mapas y SIG</h2>
-    <ul>
-      <li>Mapa coroplético – <a href="mapa_coropletico.png" target="_blank">ver imagen</a></li>
-      <li>Análisis Buffer/Overlay – (enlace o imagen aquí)</li>
-    </ul>
+  <!-- Unidad I -->
+  <section id="unidad1" class="container my-5">
+    <h2 class="mb-4">Unidad I</h2>
+    <div class="row">
 
-    <h2>2) Geoestadística</h2>
-    <ul>
-      <li>Variograma experimental y ajustes – <a href="variograma.png" target="_blank">ver resultado</a></li>
-      <li>Kriging ordinario (mapa + error) – (enlace aquí)</li>
-    </ul>
+      <!-- Ejemplo de card -->
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Mapa Coroplético</h5>
+            <h6 class="card-subtitle mb-2 text-muted">10 Sept 2025</h6>
+            <p class="card-text">Visualización de un mapa coroplético de la región Puno.</p>
+            <a href="#" class="btn btn-danger">Ver PDF</a>
+            <a href="#" class="btn btn-primary">Código R</a>
+          </div>
+        </div>
+      </div>
 
-    <h2>3) Python / R</h2>
-    <ul>
-      <li><a href="notebook_geopandas.ipynb" target="_blank">Notebook GeoPandas</a></li>
-      <li><a href="script_gstat.R" target="_blank">Script en R (gstat/automap)</a></li>
-    </ul>
+      <!-- Otra card -->
+      <div class="col-md-6">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Análisis Buffer/Overlay</h5>
+            <h6 class="card-subtitle mb-2 text-muted">12 Sept 2025</h6>
+            <p class="card-text">Aplicación de análisis espacial mediante buffer y overlay.</p>
+            <a href="#" class="btn btn-danger">Ver PDF</a>
+            <a href="#" class="btn btn-primary">Código R</a>
+          </div>
+        </div>
+      </div>
 
-    <h2>4) Informe</h2>
+    </div>
+  </section>
+
+  <!-- Unidad II -->
+  <section id="unidad2" class="container my-5">
+    <h2 class="mb-4">Unidad II</h2>
+    <div class="row">
+      <!-- Aquí vas agregando más cards igual que en Unidad I -->
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <footer id="contacto" class="bg-dark text-white text-center p-4">
+    <p><b>Contacto:</b> roluna@est.unap.edu.pe</p>
     <p>
-      Resumen de resultados, decisiones de modelo y validación cruzada.  
-      Aquí puedes enlazar un <a href="informe.pdf" target="_blank">informe PDF</a>.
+      <a href="https://github.com/RLunaT" target="_blank" class="text-white me-3">GitHub</a>
+      <a href="https://linkedin.com/in/rosmery-luna-turpo-a329b532b" target="_blank" class="text-white">LinkedIn</a>
     </p>
+    <p>© 2025 Rosmery Luna Turpo</p>
+  </footer>
 
-    <footer>
-      <hr>
-      <p>© 2025 – Portafolio de Rosmery Luna Turpo (EST334)</p>
-    </footer>
-  </main>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
