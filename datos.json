@@ -1,0 +1,33 @@
+{
+  "unidad1": [
+    {
+      "id": 1729234567890,
+      "title": "Introducción a Datos Espaciales en R",
+      "date": "2025-03-15",
+      "description": "Exploración de paquetes espaciales en R: sf, sp y ggplot2. Creación de mapas básicos y comprensión de sistemas de coordenadas.",
+      "tags": ["R", "sf", "ggplot2", "mapas"],
+      "pdfUrl": "",
+      "codeUrl": ""
+    },
+    {
+      "id": 1729234567891,
+      "title": "Análisis Exploratorio Espacial",
+      "date": "2025-03-22",
+      "description": "Análisis descriptivo de datos georreferenciados. Visualización de patrones espaciales y detección de agrupamientos.",
+      "tags": ["AEDE", "R", "visualización"],
+      "pdfUrl": "",
+      "codeUrl": ""
+    }
+  ],
+  "unidad2": [
+    {
+      "id": 1729234567892,
+      "title": "Autocorrelación Espacial - Índice de Moran",
+      "date": "2025-04-12",
+      "description": "Cálculo e interpretación del índice de Moran I para evaluar autocorrelación espacial en datos de temperatura.",
+      "tags": ["Moran", "autocorrelación", "spdep"],
+      "pdfUrl": "",
+      "codeUrl": ""
+    }
+  ]
+}
