@@ -4,73 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio EST334 - Rosmery Luna Turpo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --primary: #2563eb;
-            --secondary: #8b5cf6;
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f1f5f9;
-            --text-dim: #94a3b8;
-        }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .header { background: linear-gradient(135deg, var(--primary), var(--secondary)); padding: 3rem 2rem; text-align: center; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f172a; color: #f1f5f9; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #2563eb, #8b5cf6); padding: 3rem 2rem; text-align: center; }
         .header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .nav { background: var(--card); padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+        .nav { background: #1e293b; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
         .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
         .nav-links { display: flex; gap: 1rem; list-style: none; }
-        .nav-link { color: var(--text-dim); text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; transition: 0.3s; }
-        .nav-link:hover { background: var(--primary); color: white; }
+        .nav-link { color: #94a3b8; text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; transition: 0.3s; }
+        .nav-link:hover { background: #2563eb; color: white; }
         .admin-link { background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
         .container { max-width: 1200px; margin: 3rem auto; padding: 0 2rem; }
-        .about-section { background: var(--card); border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
+        .about { background: #1e293b; border-radius: 16px; padding: 2rem; margin-bottom: 3rem; }
         .about-grid { display: grid; grid-template-columns: 250px 1fr; gap: 2rem; }
-        .profile-image { width: 250px; height: 250px; border-radius: 50%; border: 5px solid var(--primary); box-shadow: 0 8px 24px rgba(37,99,235,0.4); }
-        .about-content h2 { color: var(--primary); margin-bottom: 1rem; font-size: 2rem; }
+        .profile-img { width: 250px; height: 250px; border-radius: 50%; border: 5px solid #2563eb; }
         .info-row { display: flex; gap: 0.5rem; padding: 0.75rem; background: #334155; border-radius: 8px; margin-bottom: 0.5rem; }
-        .info-label { font-weight: 600; color: var(--primary); min-width: 140px; }
+        .info-label { font-weight: 600; color: #2563eb; min-width: 140px; }
         .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
-        .stat-card { background: var(--card); border-radius: 16px; padding: 2rem; text-align: center; }
-        .stat-number { font-size: 3rem; font-weight: 800; color: var(--primary); }
-        .unit-section { margin-bottom: 4rem; }
+        .stat-card { background: #1e293b; border-radius: 16px; padding: 2rem; text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 800; color: #2563eb; }
+        .unit { margin-bottom: 4rem; }
         .unit-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-        .unit-number { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-size: 2rem; font-weight: 800; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
-        .unit-title { font-size: 2rem; }
-        .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
-        .work-card { background: var(--card); border-radius: 16px; padding: 2rem; transition: 0.3s; }
-        .work-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(37,99,235,0.3); }
-        .work-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
-        .work-date { background: #334155; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.85rem; color: var(--text-dim); display: inline-block; margin-bottom: 1rem; }
-        .work-description { color: var(--text-dim); margin-bottom: 1rem; }
-        .work-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-        .tag { background: var(--primary); color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; }
-        .btn { flex: 1; padding: 0.75rem; border-radius: 8px; text-decoration: none; text-align: center; font-weight: 600; transition: 0.3s; display: inline-block; }
-        .btn-pdf { background: #ef4444; color: white; margin-right: 0.5rem; }
-        .btn-code { background: #334155; color: var(--text); }
+        .unit-number { width: 60px; height: 60px; background: linear-gradient(135deg, #2563eb, #8b5cf6); color: white; font-size: 2rem; font-weight: 800; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+        .card { background: #1e293b; border-radius: 16px; padding: 2rem; transition: 0.3s; }
+        .card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(37,99,235,0.3); }
+        .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .card-date { background: #334155; padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.85rem; color: #94a3b8; display: inline-block; margin-bottom: 1rem; }
+        .card-desc { color: #94a3b8; margin-bottom: 1rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+        .tag { background: #2563eb; color: white; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.85rem; }
+        .btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .btn { flex: 1; min-width: 120px; padding: 0.75rem; border-radius: 8px; text-decoration: none; text-align: center; font-weight: 600; transition: 0.3s; }
+        .btn-pdf { background: #ef4444; color: white; }
+        .btn-code { background: #334155; color: white; }
+        .btn-data { background: #10b981; color: white; }
+        .btn-app { background: #8b5cf6; color: white; }
         .btn:hover { transform: scale(1.05); }
-        .empty-state { grid-column: 1/-1; text-align: center; padding: 4rem 2rem; background: var(--card); border: 2px dashed #334155; border-radius: 16px; }
-        .footer { background: var(--card); padding: 3rem 2rem; margin-top: 4rem; text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; flex-wrap: wrap; }
-        .footer-link { color: var(--text-dim); text-decoration: none; padding: 0.75rem 1.5rem; background: #334155; border-radius: 8px; transition: 0.3s; }
-        .footer-link:hover { background: var(--primary); color: white; }
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .about-grid { grid-template-columns: 1fr; text-align: center; }
-            .cards-grid { grid-template-columns: 1fr; }
-        }
+        .empty { grid-column: 1/-1; text-align: center; padding: 4rem; background: #1e293b; border: 2px dashed #334155; border-radius: 16px; }
+        .footer { background: #1e293b; padding: 3rem 2rem; margin-top: 4rem; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0; }
+        .footer-link { color: #94a3b8; text-decoration: none; padding: 0.75rem 1.5rem; background: #334155; border-radius: 8px; transition: 0.3s; }
+        .footer-link:hover { background: #2563eb; color: white; }
+        @media (max-width: 768px) { .about-grid, .cards { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
     <header class="header">
-        <h1>Portafolio EST334</h1>
-        <p>Estadística Espacial | Semestre 2025-II</p>
+        <h1>📊 Portafolio EST334</h1>
+        <p>Estadística Espacial | UNAP | 2025-II</p>
     </header>
 
     <nav class="nav">
         <div class="nav-content">
             <ul class="nav-links">
-                <li><a href="#about" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre Mí</a></li>
                 <li><a href="#unidad1" class="nav-link">Unidad I</a></li>
                 <li><a href="#unidad2" class="nav-link">Unidad II</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
@@ -80,106 +70,88 @@
     </nav>
 
     <main class="container">
-        <section id="about" class="about-section">
+        <section id="sobre" class="about">
             <div class="about-grid">
-                <img src="profile.jpg" alt="Foto de perfil" class="profile-image">
-                <div class="about-content">
-                    <h2>Sobre Mí</h2>
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">
-                        ¡Hola! Soy <strong>Rosmery Luna Turpo</strong>, estudiante de Estadística en la Universidad Nacional del Altiplano. Me apasiona el análisis de datos espaciales y la visualización geográfica.
-                    </p>
-                    <div>
-                        <div class="info-row"><span class="info-label">📚 Carrera:</span><span>Estadística</span></div>
-                        <div class="info-row"><span class="info-label">🎓 Universidad:</span><span>Universidad Nacional del Altiplano</span></div>
-                        <div class="info-row"><span class="info-label">📍 Ciudad:</span><span>Puno, Perú</span></div>
-                        <div class="info-row"><span class="info-label">📅 Semestre:</span><span>5to - 2025-II</span></div>
-                    </div>
+                <img src="https://via.placeholder.com/250/2563eb/fff?text=EST334" alt="Profile" class="profile-img" id="img">
+                <div>
+                    <h2 style="color:#2563eb;margin-bottom:1rem;">👋 Rosmery Luna Turpo</h2>
+                    <p style="color:#94a3b8;margin-bottom:1.5rem;">Estudiante de Estadística en la Universidad Nacional del Altiplano. Apasionada por el análisis de datos espaciales y la geoestadística.</p>
+                    <div class="info-row"><span class="info-label">📚 Carrera:</span><span>Estadística</span></div>
+                    <div class="info-row"><span class="info-label">🎓 Universidad:</span><span>UNAP</span></div>
+                    <div class="info-row"><span class="info-label">📍 Ciudad:</span><span>Puno, Perú</span></div>
+                    <div class="info-row"><span class="info-label">📅 Semestre:</span><span>5to - 2025-II</span></div>
                 </div>
             </div>
         </section>
 
         <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number" id="totalWorks">0</div>
-                <p style="color: var(--text-dim);">Trabajos Realizados</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">2</div>
-                <p style="color: var(--text-dim);">Unidades del Curso</p>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="progressPercent">0%</div>
-                <p style="color: var(--text-dim);">Avance del Semestre</p>
-            </div>
+            <div class="stat-card"><div class="stat-number" id="total">0</div><p style="color:#94a3b8;">Trabajos</p></div>
+            <div class="stat-card"><div class="stat-number">2</div><p style="color:#94a3b8;">Unidades</p></div>
+            <div class="stat-card"><div class="stat-number" id="prog">0%</div><p style="color:#94a3b8;">Progreso</p></div>
         </div>
 
-        <section class="unit-section" id="unidad1">
+        <section id="unidad1" class="unit">
             <div class="unit-header">
                 <div class="unit-number">I</div>
-                <h2 class="unit-title">Unidad I: Fundamentos de Estadística Espacial</h2>
+                <h2>Unidad I: Fundamentos de Estadística Espacial</h2>
             </div>
-            <div class="cards-grid" id="unidad1-grid"></div>
+            <div class="cards" id="u1"></div>
         </section>
 
-        <section class="unit-section" id="unidad2">
+        <section id="unidad2" class="unit">
             <div class="unit-header">
                 <div class="unit-number">II</div>
-                <h2 class="unit-title">Unidad II: Modelos Espaciales Avanzados</h2>
+                <h2>Unidad II: Modelos Espaciales Avanzados</h2>
             </div>
-            <div class="cards-grid" id="unidad2-grid"></div>
+            <div class="cards" id="u2"></div>
         </section>
     </main>
 
     <footer class="footer" id="contacto">
-        <h3 style="color: var(--primary); margin-bottom: 1rem;">Contacto</h3>
+        <h3 style="color:#2563eb;margin-bottom:1rem;">📧 Contacto</h3>
         <div class="footer-links">
-            <a href="https://github.com/RLunaT" target="_blank" class="footer-link">💻 GitHub</a>
-            <a href="https://linkedin.com/in/rosmery-luna-turpo-a329b532b" target="_blank" class="footer-link">💼 LinkedIn</a>
-            <a href="mailto:roluna@est.unap.edu.pe" class="footer-link">📧 Email</a>
+            <a href="https://github.com/RLunaT" target="_blank" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/rosmery-luna-turpo-a329b532b" target="_blank" class="footer-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:roluna@est.unap.edu.pe" class="footer-link"><i class="fas fa-envelope"></i> Email</a>
         </div>
-        <p style="color: var(--text-dim);">© 2025 Rosmery Luna Turpo - EST334</p>
+        <p style="color:#94a3b8;">© 2025 Rosmery Luna Turpo - EST334</p>
     </footer>
 
     <script>
-        fetch('datos.json').then(r => r.json()).then(data => {
-            renderWorks('unidad1', data.unidad1 || []);
-            renderWorks('unidad2', data.unidad2 || []);
-            updateStats(data);
-        }).catch(() => {
-            showEmpty('unidad1');
-            showEmpty('unidad2');
-        });
+        fetch('datos.json?t='+Date.now()).then(r=>r.json()).then(d=>{
+            show('u1',d.unidad1||[]);show('u2',d.unidad2||[]);
+            const t=(d.unidad1?.length||0)+(d.unidad2?.length||0);
+            document.getElementById('total').textContent=t;
+            document.getElementById('prog').textContent=Math.min(100,Math.round(t/16*100))+'%';
+        }).catch(()=>{empty('u1');empty('u2');});
 
-        function renderWorks(unit, works) {
-            const grid = document.getElementById(`${unit}-grid`);
-            if (!works.length) { showEmpty(unit); return; }
-            works.forEach(w => grid.appendChild(createCard(w)));
+        function show(id,w){
+            const g=document.getElementById(id);g.innerHTML='';
+            if(!w.length){empty(id);return;}
+            w.forEach(x=>{
+                const c=document.createElement('div');c.className='card';
+                const d=new Date(x.date).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'});
+                const t=x.tags?.length?`<div class="tags">${x.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';
+                let b='';
+                if(x.pdfUrl)b+=`<a href="${x.pdfUrl}" target="_blank" class="btn btn-pdf"><i class="fas fa-file-pdf"></i> PDF</a>`;
+                if(x.codeUrl)b+=`<a href="${x.codeUrl}" target="_blank" class="btn btn-code"><i class="fas fa-code"></i> Código</a>`;
+                if(x.dataUrl)b+=`<a href="${x.dataUrl}" target="_blank" class="btn btn-data"><i class="fas fa-database"></i> Datos</a>`;
+                if(x.appUrl)b+=`<a href="${x.appUrl}" target="_blank" class="btn btn-app"><i class="fas fa-rocket"></i> App</a>`;
+                c.innerHTML=`<h3 class="card-title">${x.title}</h3><span class="card-date">${d}</span><p class="card-desc">${x.description}</p>${t}<div class="btns">${b}</div>`;
+                g.appendChild(c);
+            });
         }
 
-        function createCard(w) {
-            const card = document.createElement('div');
-            card.className = 'work-card';
-            const date = new Date(w.date).toLocaleDateString('es-ES', {day: 'numeric', month: 'short', year: 'numeric'});
-            const tags = w.tags?.length ? `<div class="work-tags">${w.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>` : '';
-            const pdf = w.pdfUrl ? `<a href="${w.pdfUrl}" target="_blank" class="btn btn-pdf">📄 Ver PDF</a>` : '';
-            const code = w.codeUrl ? `<a href="${w.codeUrl}" target="_blank" class="btn btn-code">💻 Código</a>` : '';
-            card.innerHTML = `<h3 class="work-title">${w.title}</h3><span class="work-date">${date}</span><p class="work-description">${w.description}</p>${tags}<div>${pdf}${code}</div>`;
-            return card;
+        function empty(id){
+            document.getElementById(id).innerHTML='<div class="empty"><div style="font-size:4rem">📂</div><h3>No hay trabajos</h3><p style="color:#94a3b8">Próximamente</p></div>';
         }
 
-        function showEmpty(unit) {
-            document.getElementById(`${unit}-grid`).innerHTML = `<div class="empty-state"><div style="font-size:4rem;margin-bottom:1rem;">📂</div><h3>No hay trabajos aún</h3><p style="color:var(--text-dim);">Los trabajos aparecerán próximamente.</p></div>`;
-        }
+        // Load profile image
+        const i=new Image();i.src='profile.jpg';i.onload=()=>document.getElementById('img').src='profile.jpg';
 
-        function updateStats(data) {
-            const total = (data.unidad1?.length || 0) + (data.unidad2?.length || 0);
-            document.getElementById('totalWorks').textContent = total;
-            document.getElementById('progressPercent').textContent = Math.min(100, Math.round((total/16)*100)) + '%';
-        }
-
-        document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-            e.preventDefault();
-            document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior: 'smooth'});
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+            e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'});
         }));
     </script>
 </body>
