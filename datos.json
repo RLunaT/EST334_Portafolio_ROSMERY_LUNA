@@ -1,39 +1,102 @@
 {
   "unidad1": [
     {
-      "id": 1729234567890,
-      "title": "Introducción a Datos Espaciales en R",
-      "date": "2025-03-15",
-      "description": "Exploración de paquetes espaciales en R: sf, sp y ggplot2. Creación de mapas básicos y comprensión de sistemas de coordenadas geográficas.",
-      "tags": ["R", "sf", "ggplot2", "mapas", "SIG"],
-      "pdfUrl": "",
-      "codeUrl": "",
-      "dataUrl": "",
-      "appUrl": ""
+      "id": 1760999127062,
+      "title": "POSICIONAMIENTO DE CULTIVOS  EN EL MAPA DE PUNO -  SHINY APP",
+      "date": "2025-09-10",
+      "description": "La actividad consistió en representar el posicionamiento espacial de una variable del dataset ENA en el mapa de Puno, elaborando planos bidimensionales y visualizaciones geográficas en R (ggplot2 y sf). \nAdemás, se implementó una aplicación interactiva en Shiny que permite explorar dinámicamente la distribución espacial de los cultivos agrícolas, fortaleciendo las competencias en análisis geoespacial y visualización de datos.",
+      "tags": [
+        "R",
+        "Shiny",
+        "ggplot2",
+        "sf",
+        "ENA",
+        "Agricultura",
+        "Mapas",
+        "Georreferenciación"
+      ],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/INFORMATIVO%20DE%20APP%20%20CULTIVOS%20EN%20PUNO%20-%20ROSMERY%20LUNA%20TURPO.pdf",
+      "codeUrl": "https://rosmeryluna.shinyapps.io/shiny_app/"
     },
     {
-      "id": 1729234567891,
-      "title": "Análisis Exploratorio de Datos Espaciales (AEDE)",
-      "date": "2025-03-22",
-      "description": "Análisis estadístico descriptivo de datos georreferenciados. Visualización de patrones espaciales y detección de clusters.",
-      "tags": ["AEDE", "R", "visualización", "clusters"],
-      "pdfUrl": "",
-      "codeUrl": "",
-      "dataUrl": "",
-      "appUrl": ""
+      "id": 1761002791479,
+      "title": "MUESTREO BOOTSTRAP EN EL DATASET MTCARS",
+      "date": "2025-09-16",
+      "description": "Se aplicó la técnica de remuestreo Bootstrap para estimar la distribución de la media, los coeficientes de regresión y la correlación entre variables del dataset mtcars. Se realizaron 1000 remuestreos con reposición para evaluar la estabilidad de los estimadores, construyendo intervalos de confianza mediante métodos Normal, Básico, Percentil y BCa. Los resultados mostraron una fuerte correlación negativa entre peso y eficiencia de combustible, y confirmaron la validez del método Bootstrap como alternativa no paramétrica.",
+      "tags": [
+        "R",
+        "Bootstrap",
+        "Muestreo",
+        "Estadística",
+        "mtcars",
+        "ggplot2",
+        "Análisis"
+      ],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/MUESTREO%20BOOTSTRAP%20-%20LUNA%20TURPO%20ROSMERY.pdf",
+      "codeUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/BOOTSTRAP%20-%20LUNA%20TURPO%20ROSMERY.R"
+    },
+    {
+      "id": 1761003896407,
+      "title": "GAUSSIAN RANDOM FIELDS EN SUPERFICIE Y RENDIMIENTO AGRÍCOLA",
+      "date": "2025-09-17",
+      "description": "Se aplicó el modelo de Campos Aleatorios Gaussianos para analizar relaciones entre superficie cultivada y rendimiento agrícola a partir de una base nacional de más de 70 mil registros. Se estimaron los parámetros del campo gaussiano bivariado (µ = (−1.18, 5.90), ρ = −0.27) y se generaron simulaciones en tres escenarios: base, conservador y optimista. Los resultados mostraron una correlación negativa moderada entre superficie y rendimiento, confirmando la validez del modelo para representar la variabilidad agrícola y apoyar la planificación del sector.",
+      "tags": [
+        "R",
+        "Gaussian Random Fields",
+        "Estadística Espacial",
+        "Simulación",
+        "Agricultura",
+        "Campos Aleatorios",
+        "Análisis Multivariado"
+      ],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/LUNA%20TURPO%20Rosmery%20-%20GAUSIAN%20RANDOM%20FIELD%20(1).pdf",
+      "codeUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/GAUSIANO1.R"
+    },
+    {
+      "id": 1761010203074,
+      "title": "RESEARCH STATEMENT",
+      "date": "2025-09-30",
+      "description": "Este trabajo presenta una propuesta de investigación titulada “Spatial Analysis of Agricultural Production and Irrigation Practices in Peru using Multigaussian and Plurigaussian Geostatistical Simulation”. El estudio plantea un marco metodológico para modelar la variabilidad espacial de la producción agrícola y las prácticas de riego mediante simulaciones geoestadísticas. Se aplican modelos multigaussianos para variables continuas (rendimiento, superficie) y plurigaussianos para variables categóricas (tipos de riego, cultivos). Los resultados esperados incluyen mapas de predicción, incertidumbre y probabilidad, orientados a la toma de decisiones agrícolas y políticas públicas basadas en evidencia espacial.",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/RESEARCH%20STATEMENT-R%20LUNA.pdf",
+      "codeUrl": ""
+    },
+    {
+      "id": 1761015395304,
+      "title": "APLICACIÓN DE AUTOCORRELACIÓN ESPACIAL",
+      "date": "2025-10-07",
+      "description": "Se elaboró un resumen comparativo de diversos artículos científicos relacionados con la autocorrelación espacial y su convergencia teórica. El análisis abordó los fundamentos de los índices de Moran’s I, Geary’s C y el concepto de dependencia espacial positiva y negativa. Se discutieron aplicaciones en el contexto geográfico y socioeconómico, destacando cómo la autocorrelación espacial permite identificar patrones de concentración territorial y estructuras regionales. El trabajo integró enfoques conceptuales y metodológicos que sustentan el uso de la estadística espacial en investigación aplicada.",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/LUNA_%20ROSMERY%20-%20ART%C3%8DCULOS%20Y%20ESTUDIO%20APLICADO.pdf",
+      "codeUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/CORR-%20ESPACIAL-%20LUNA%20TURPO%20ROSMERY.R"
+    },
+    {
+      "id": 1761023559374,
+      "title": "MATRICES DE PESOS, MORAN’S I, GEARY’S C Y HOTSPOTS",
+      "date": "2025-10-15",
+      "description": "Se realizó un análisis espacial de la superficie cultivada en el Perú utilizando datos de la Encuesta Nacional Agropecuaria 2024 (INEI). El estudio empleó matrices de pesos espaciales basadas en el método K-Nearest Neighbors (k=5), el índice global de Moran para medir la autocorrelación espacial, el índice C de Geary para validación local y el análisis LISA para detectar hotspots. Los resultados mostraron autocorrelación espacial positiva significativa (I=0.1494, p<0.05), identificando a Ucayali como el único clúster High-High de alta superficie cultivada. Se concluye que la agricultura peruana presenta patrones territoriales de agrupamiento y no una distribución aleatoria.",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/ROSMERY%20LUNA%20-%20INDICE%20DE%20MORAN-%20LISA%20-%20HOSTPOT%20KNN%20ETC.pdf",
+      "codeUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/COD%20--R%20-%20PARA%20%20EST%20ESPACIAL---.R"
+    },
+    {
+      "id": 1761024040524,
+      "title": "EVIDENCIAS DE PAPER",
+      "date": "2025-10-19",
+      "description": "Este trabajo presenta las evidencias del artículo científico titulado “Spatial Analysis of Agricultural Production and Irrigation Practices in Peru Using Multigaussian and Plurigaussian Geostatistical Simulation”, elaborado junto al coautor Fredy Villasante. El paper aplica simulaciones multigaussianas y plurigaussianas sobre datos del Censo Agropecuario 2024 para modelar la producción agrícola y los tipos de riego a nivel nacional. Se confirma una autocorrelación espacial significativa (I=0.174, p<0.001) y se identifican 345 hotspots de alta productividad.\nNOTA: Por motivos de privacidad, el acuse de recibo del envío no se muestra públicamente.",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/ART%C3%8DCULO%20-%20Rosmery%20Luna%20Turpo.pdf",
+      "codeUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/MULTI%20Y%20PLURIGAUSIAN%20COD.R"
+    },
+    {
+      "id": 1761024767766,
+      "title": "EVIDENCIAS DE PORTAFOLIO",
+      "date": "2025-09-26",
+      "description": "Portafolio interactivo que integra prácticas en R, mapas temáticos, análisis de autocorrelación espacial y simulaciones multigaussianas. Refleja el dominio de herramientas estadísticas y la gestión de proyectos en GitHub como evidencia de aprendizaje aplicado.",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/EVIDENCIAS%20DE%20PORTAFOLIO.pdf",
+      "codeUrl": ""
     }
   ],
-  "unidad2": [
-    {
-      "id": 1729234567892,
-      "title": "Autocorrelación Espacial - Índice de Moran",
-      "date": "2025-04-12",
-      "description": "Cálculo e interpretación del índice de Moran I para evaluar autocorrelación espacial en datos climáticos de la región Puno.",
-      "tags": ["Moran", "autocorrelación", "spdep", "clima"],
-      "pdfUrl": "",
-      "codeUrl": "",
-      "dataUrl": "",
-      "appUrl": ""
-    }
-  ]
+  "unidad2": []
 }
