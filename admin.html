@@ -3,293 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin - EST334</title>
+    <title>Admin - EST334</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, sans-serif; background: #0f172a; color: #f1f5f9; }
-        .login { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 2rem; }
-        .login-box { background: #1e293b; border-radius: 16px; padding: 3rem; max-width: 400px; width: 100%; text-align: center; }
-        .login-box h1 { color: #2563eb; margin-bottom: 1rem; }
-        input { width: 100%; padding: 0.75rem; background: #334155; border: 1px solid #475569; border-radius: 8px; color: #f1f5f9; margin-bottom: 1rem; }
-        .btn { padding: 0.75rem 2rem; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; transition: 0.3s; }
-        .btn-primary { background: #2563eb; color: white; width: 100%; }
-        .btn-primary:hover { background: #1e40af; }
-        .btn-success { background: #10b981; color: white; }
-        .btn-danger { background: #ef4444; color: white; }
-        .panel { display: none; }
-        .header { background: #1e293b; padding: 1.5rem 2rem; margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-        .header h1 { color: #2563eb; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem 3rem; }
-        .alert { background: #f59e0b; color: white; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
-        .section { background: #1e293b; border-radius: 16px; padding: 2rem; margin-bottom: 2rem; }
-        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem; }
-        .work-item { background: #334155; border-radius: 8px; padding: 1.5rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
-        .work-actions { display: flex; gap: 0.5rem; }
-        .modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 2rem; }
-        .modal.show { display: flex; }
-        .modal-content { background: #1e293b; border-radius: 16px; padding: 2rem; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: #94a3b8; }
-        textarea { min-height: 100px; font-family: inherit; resize: vertical; width: 100%; padding: 0.75rem; background: #334155; border: 1px solid #475569; border-radius: 8px; color: #f1f5f9; }
-        .empty { text-align: center; padding: 3rem; color: #94a3b8; }
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-        .stat-card { background: #1e293b; border-radius: 12px; padding: 2rem; text-align: center; }
-        .stat-card h3 { font-size: 3rem; color: #2563eb; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,sans-serif;background:#0f172a;color:#f1f5f9}
+        .login{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem}
+        .login-box{background:#1e293b;border-radius:16px;padding:3rem;max-width:400px;width:100%;text-align:center}
+        .login-box h1{color:#2563eb;margin-bottom:1rem}
+        input,textarea{width:100%;padding:0.75rem;background:#334155;border:1px solid#475569;border-radius:8px;color:#f1f5f9;margin-bottom:1rem;font-family:inherit}
+        textarea{min-height:100px;resize:vertical}
+        .btn{padding:0.75rem 2rem;border-radius:8px;border:none;font-weight:600;cursor:pointer;transition:0.3s}
+        .btn-primary{background:#2563eb;color:white;width:100%}
+        .btn-success{background:#10b981;color:white}
+        .btn-danger{background:#ef4444;color:white}
+        .panel{display:none}
+        .header{background:#1e293b;padding:1.5rem 2rem;margin-bottom:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .container{max-width:1200px;margin:0 auto;padding:0 2rem 3rem}
+        .alert{background:#f59e0b;color:white;padding:1rem;border-radius:8px;margin-bottom:2rem}
+        .section{background:#1e293b;border-radius:16px;padding:2rem;margin-bottom:2rem}
+        .section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem}
+        .work-item{background:#334155;border-radius:8px;padding:1.5rem;margin-bottom:1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+        .work-actions{display:flex;gap:0.5rem}
+        .modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.8);z-index:1000;align-items:center;justify-content:center;padding:2rem}
+        .modal.show{display:flex}
+        .modal-content{background:#1e293b;border-radius:16px;padding:2rem;max-width:600px;width:100%;max-height:90vh;overflow-y:auto}
+        .form-group{margin-bottom:1rem}
+        .form-group label{display:block;margin-bottom:0.5rem;color:#94a3b8}
+        .empty{text-align:center;padding:3rem;color:#94a3b8}
+        .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-bottom:3rem}
+        .stat-card{background:#1e293b;border-radius:12px;padding:2rem;text-align:center}
+        .stat-card h3{font-size:3rem;color:#2563eb}
     </style>
 </head>
 <body>
     <div id="loginScreen" class="login">
         <div class="login-box">
-            <h1>🔐 Admin Panel</h1>
-            <p style="color: #94a3b8; margin-bottom: 2rem;">Ingresa la contraseña</p>
+            <h1>🔐 Admin EST334</h1>
+            <p style="color:#94a3b8;margin-bottom:2rem">Ingresa contraseña</p>
             <form onsubmit="login(event)">
                 <input type="password" id="pass" placeholder="Contraseña" required>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
             </form>
-            <a href="index.html" style="display: block; margin-top: 1rem; color: #94a3b8; text-decoration: none;">← Volver</a>
+            <a href="index.html" style="display:block;margin-top:1rem;color:#94a3b8;text-decoration:none">← Volver</a>
         </div>
     </div>
 
     <div id="panel" class="panel">
         <div class="header">
-            <h1>📊 Panel Admin</h1>
-            <div style="display: flex; gap: 1rem;">
-                <a href="index.html" class="btn" style="background: #334155; text-decoration: none; color: #f1f5f9;">Ver Portafolio</a>
-                <button onclick="logout()" class="btn btn-danger">Cerrar Sesión</button>
+            <h1 style="color:#2563eb">📊 Panel Admin</h1>
+            <div style="display:flex;gap:1rem">
+                <a href="index.html" class="btn" style="background:#334155;text-decoration:none;color:#f1f5f9">Ver Portafolio</a>
+                <button onclick="logout()" class="btn btn-danger">Cerrar</button>
             </div>
         </div>
 
         <div class="container">
-            <div class="alert">
-                <strong>⚠️ IMPORTANTE:</strong> Después de agregar trabajos, haz clic en "💾 Exportar datos.json" y sube el archivo a tu repositorio de GitHub.
-            </div>
+            <div class="alert"><strong>⚠️ IMPORTANTE:</strong> Después de agregar trabajos, exporta datos.json y súbelo a GitHub</div>
 
             <div class="stats">
-                <div class="stat-card"><h3 id="total">0</h3><p style="color: #94a3b8;">Total</p></div>
-                <div class="stat-card"><h3 id="u1">0</h3><p style="color: #94a3b8;">Unidad I</p></div>
-                <div class="stat-card"><h3 id="u2">0</h3><p style="color: #94a3b8;">Unidad II</p></div>
+                <div class="stat-card"><h3 id="t">0</h3><p style="color:#94a3b8">Total</p></div>
+                <div class="stat-card"><h3 id="u1c">0</h3><p style="color:#94a3b8">Unidad I</p></div>
+                <div class="stat-card"><h3 id="u2c">0</h3><p style="color:#94a3b8">Unidad II</p></div>
             </div>
 
             <div class="section">
-                <div class="section-header">
-                    <h2>📁 Archivos</h2>
-                </div>
-                <button onclick="exportData()" class="btn btn-success" style="margin-right: 1rem;">💾 Exportar datos.json</button>
-                <label class="btn" style="background: #334155; display: inline-block;">
-                    📥 Importar
-                    <input type="file" accept=".json" onchange="importData(event)" style="display: none;">
+                <h2 style="margin-bottom:1rem">📁 Archivos</h2>
+                <button onclick="exp()" class="btn btn-success" style="margin-right:1rem">💾 Exportar datos.json</button>
+                <label class="btn" style="background:#334155;display:inline-block">📥 Importar
+                    <input type="file" accept=".json" onchange="imp(event)" style="display:none">
                 </label>
             </div>
 
             <div class="section">
                 <div class="section-header">
                     <h2>Unidad I</h2>
-                    <button onclick="showAdd('unidad1')" class="btn btn-success">+ Agregar</button>
+                    <button onclick="add('unidad1')" class="btn btn-success">+ Agregar</button>
                 </div>
-                <div id="list1"></div>
+                <div id="l1"></div>
             </div>
 
             <div class="section">
                 <div class="section-header">
                     <h2>Unidad II</h2>
-                    <button onclick="showAdd('unidad2')" class="btn btn-success">+ Agregar</button>
+                    <button onclick="add('unidad2')" class="btn btn-success">+ Agregar</button>
                 </div>
-                <div id="list2"></div>
+                <div id="l2"></div>
             </div>
         </div>
     </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">
-            <h2 id="modalTitle" style="color: #2563eb; margin-bottom: 1.5rem;">Agregar Trabajo</h2>
+            <h2 id="mt" style="color:#2563eb;margin-bottom:1.5rem">Agregar Trabajo</h2>
             <form onsubmit="save(event)">
                 <input type="hidden" id="unit">
-                <input type="hidden" id="editId">
-                <div class="form-group">
-                    <label>Título *</label>
-                    <input type="text" id="title" required>
-                </div>
-                <div class="form-group">
-                    <label>Fecha *</label>
-                    <input type="date" id="date" required>
-                </div>
-                <div class="form-group">
-                    <label>Descripción *</label>
-                    <textarea id="desc" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Etiquetas (separadas por comas)</label>
-                    <input type="text" id="tags" placeholder="R, ggplot2, Kriging">
-                </div>
-                <div class="form-group">
-                    <label>URL del PDF</label>
-                    <input type="url" id="pdf" placeholder="https://...">
-                </div>
-                <div class="form-group">
-                    <label>URL del Código</label>
-                    <input type="url" id="code" placeholder="https://github.com/...">
-                </div>
-                <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-                    <button type="submit" class="btn btn-success" style="flex: 1;">💾 Guardar</button>
-                    <button type="button" onclick="closeModal()" class="btn" style="flex: 1; background: #334155;">Cancelar</button>
+                <input type="hidden" id="eid">
+                <div class="form-group"><label>Título *</label><input type="text" id="title" required></div>
+                <div class="form-group"><label>Fecha *</label><input type="date" id="date" required></div>
+                <div class="form-group"><label>Descripción *</label><textarea id="desc" required></textarea></div>
+                <div class="form-group"><label>Etiquetas (separadas por comas)</label><input type="text" id="tags" placeholder="R, ggplot2, Kriging"></div>
+                <div class="form-group"><label>URL del PDF</label><input type="url" id="pdf" placeholder="https://..."></div>
+                <div class="form-group"><label>URL del Código</label><input type="url" id="code" placeholder="https://github.com/..."></div>
+                <div class="form-group"><label>URL de los Datos</label><input type="url" id="data" placeholder="https://..."></div>
+                <div class="form-group"><label>URL de la App (Shiny)</label><input type="url" id="app" placeholder="https://..."></div>
+                <div style="display:flex;gap:1rem;margin-top:2rem">
+                    <button type="submit" class="btn btn-success" style="flex:1">💾 Guardar</button>
+                    <button type="button" onclick="close()" class="btn" style="flex:1;background:#334155">Cancelar</button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        const PASS = 'rosmery2025';
-        let data = {unidad1: [], unidad2: []};
+        const PASS='rosmery2025';
+        let d={unidad1:[],unidad2:[]};
 
-        function login(e) {
+        function login(e){
             e.preventDefault();
-            if (document.getElementById('pass').value === PASS) {
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('panel').style.display = 'block';
-                load();
-                render();
-            } else {
+            if(document.getElementById('pass').value===PASS){
+                document.getElementById('loginScreen').style.display='none';
+                document.getElementById('panel').style.display='block';
+                load();render();
+            }else{
                 alert('❌ Contraseña incorrecta');
-                document.getElementById('pass').value = '';
+                document.getElementById('pass').value='';
             }
         }
 
-        function logout() {
-            if (confirm('¿Cerrar sesión?')) {
-                document.getElementById('loginScreen').style.display = 'flex';
-                document.getElementById('panel').style.display = 'none';
-                document.getElementById('pass').value = '';
+        function logout(){
+            if(confirm('¿Cerrar?')){
+                document.getElementById('loginScreen').style.display='flex';
+                document.getElementById('panel').style.display='none';
             }
         }
 
-        function load() {
-            const saved = localStorage.getItem('est334_works');
-            if (saved) data = JSON.parse(saved);
+        function load(){
+            const s=localStorage.getItem('est334_works');
+            if(s)d=JSON.parse(s);
         }
 
-        function render() {
-            renderUnit('unidad1', 'list1');
-            renderUnit('unidad2', 'list2');
-            document.getElementById('total').textContent = data.unidad1.length + data.unidad2.length;
-            document.getElementById('u1').textContent = data.unidad1.length;
-            document.getElementById('u2').textContent = data.unidad2.length;
+        function render(){
+            renderUnit('unidad1','l1');renderUnit('unidad2','l2');
+            document.getElementById('t').textContent=d.unidad1.length+d.unidad2.length;
+            document.getElementById('u1c').textContent=d.unidad1.length;
+            document.getElementById('u2c').textContent=d.unidad2.length;
         }
 
-        function renderUnit(unit, listId) {
-            const list = document.getElementById(listId);
-            list.innerHTML = '';
-            if (data[unit].length === 0) {
-                list.innerHTML = '<div class="empty">No hay trabajos</div>';
-                return;
-            }
-            data[unit].forEach(w => {
-                const date = new Date(w.date).toLocaleDateString('es-ES', {day: 'numeric', month: 'short', year: 'numeric'});
-                const div = document.createElement('div');
-                div.className = 'work-item';
-                div.innerHTML = `
-                    <div><h3>${w.title}</h3><p style="color: #94a3b8;">${date}</p></div>
-                    <div class="work-actions">
-                        <button onclick="edit('${unit}',${w.id})" class="btn" style="background: #f59e0b;">✏️</button>
-                        <button onclick="del('${unit}',${w.id})" class="btn btn-danger">🗑️</button>
-                    </div>
-                `;
-                list.appendChild(div);
+        function renderUnit(u,lid){
+            const l=document.getElementById(lid);l.innerHTML='';
+            if(d[u].length===0){l.innerHTML='<div class="empty">No hay trabajos</div>';return;}
+            d[u].forEach(w=>{
+                const dt=new Date(w.date).toLocaleDateString('es',{day:'numeric',month:'short',year:'numeric'});
+                const div=document.createElement('div');
+                div.className='work-item';
+                div.innerHTML=`<div><h3>${w.title}</h3><p style="color:#94a3b8">${dt}</p></div><div class="work-actions"><button onclick="edit('${u}',${w.id})" class="btn" style="background:#f59e0b">✏️</button><button onclick="del('${u}',${w.id})" class="btn btn-danger">🗑️</button></div>`;
+                l.appendChild(div);
             });
         }
 
-        function showAdd(unit) {
-            document.getElementById('modalTitle').textContent = 'Agregar Trabajo';
-            document.getElementById('unit').value = unit;
-            document.getElementById('editId').value = '';
-            document.getElementById('title').value = '';
-            document.getElementById('date').value = '';
-            document.getElementById('desc').value = '';
-            document.getElementById('tags').value = '';
-            document.getElementById('pdf').value = '';
-            document.getElementById('code').value = '';
+        function add(u){
+            document.getElementById('mt').textContent='Agregar Trabajo';
+            document.getElementById('unit').value=u;
+            document.getElementById('eid').value='';
+            document.getElementById('title').value='';
+            document.getElementById('date').value='';
+            document.getElementById('desc').value='';
+            document.getElementById('tags').value='';
+            document.getElementById('pdf').value='';
+            document.getElementById('code').value='';
+            document.getElementById('data').value='';
+            document.getElementById('app').value='';
             document.getElementById('modal').classList.add('show');
         }
 
-        function edit(unit, id) {
-            const w = data[unit].find(x => x.id === id);
-            if (!w) return;
-            document.getElementById('modalTitle').textContent = 'Editar Trabajo';
-            document.getElementById('unit').value = unit;
-            document.getElementById('editId').value = id;
-            document.getElementById('title').value = w.title;
-            document.getElementById('date').value = w.date;
-            document.getElementById('desc').value = w.description;
-            document.getElementById('tags').value = w.tags ? w.tags.join(', ') : '';
-            document.getElementById('pdf').value = w.pdfUrl || '';
-            document.getElementById('code').value = w.codeUrl || '';
+        function edit(u,id){
+            const w=d[u].find(x=>x.id===id);
+            if(!w)return;
+            document.getElementById('mt').textContent='Editar Trabajo';
+            document.getElementById('unit').value=u;
+            document.getElementById('eid').value=id;
+            document.getElementById('title').value=w.title;
+            document.getElementById('date').value=w.date;
+            document.getElementById('desc').value=w.description;
+            document.getElementById('tags').value=w.tags?w.tags.join(', '):'';
+            document.getElementById('pdf').value=w.pdfUrl||'';
+            document.getElementById('code').value=w.codeUrl||'';
+            document.getElementById('data').value=w.dataUrl||'';
+            document.getElementById('app').value=w.appUrl||'';
             document.getElementById('modal').classList.add('show');
         }
 
-        function closeModal() {
+        function close(){
             document.getElementById('modal').classList.remove('show');
         }
 
-        function save(e) {
+        function save(e){
             e.preventDefault();
-            const unit = document.getElementById('unit').value;
-            const id = document.getElementById('editId').value;
-            const work = {
-                id: id ? parseInt(id) : Date.now(),
-                title: document.getElementById('title').value.trim(),
-                date: document.getElementById('date').value,
-                description: document.getElementById('desc').value.trim(),
-                tags: document.getElementById('tags').value.split(',').map(t => t.trim()).filter(t => t),
-                pdfUrl: document.getElementById('pdf').value.trim(),
-                codeUrl: document.getElementById('code').value.trim()
+            const u=document.getElementById('unit').value;
+            const id=document.getElementById('eid').value;
+            const w={
+                id:id?parseInt(id):Date.now(),
+                title:document.getElementById('title').value.trim(),
+                date:document.getElementById('date').value,
+                description:document.getElementById('desc').value.trim(),
+                tags:document.getElementById('tags').value.split(',').map(t=>t.trim()).filter(t=>t),
+                pdfUrl:document.getElementById('pdf').value.trim(),
+                codeUrl:document.getElementById('code').value.trim(),
+                dataUrl:document.getElementById('data').value.trim(),
+                appUrl:document.getElementById('app').value.trim()
             };
-            if (id) {
-                const idx = data[unit].findIndex(w => w.id === parseInt(id));
-                if (idx !== -1) data[unit][idx] = work;
-            } else {
-                data[unit].push(work);
+            if(id){
+                const idx=d[u].findIndex(w=>w.id===parseInt(id));
+                if(idx!==-1)d[u][idx]=w;
+            }else{
+                d[u].push(w);
             }
-            localStorage.setItem('est334_works', JSON.stringify(data));
-            render();
-            closeModal();
-            alert('✅ Guardado! No olvides exportar y subir datos.json a GitHub');
+            localStorage.setItem('est334_works',JSON.stringify(d));
+            render();close();
+            alert('✅ Guardado! Exporta datos.json y súbelo a GitHub');
         }
 
-        function del(unit, id) {
-            if (!confirm('¿Eliminar trabajo?')) return;
-            data[unit] = data[unit].filter(w => w.id !== id);
-            localStorage.setItem('est334_works', JSON.stringify(data));
+        function del(u,id){
+            if(!confirm('¿Eliminar?'))return;
+            d[u]=d[u].filter(w=>w.id!==id);
+            localStorage.setItem('est334_works',JSON.stringify(d));
             render();
-            alert('🗑️ Eliminado. No olvides exportar y subir datos.json a GitHub');
+            alert('🗑️ Eliminado. Exporta datos.json y súbelo a GitHub');
         }
 
-        function exportData() {
-            const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'datos.json';
-            document.body.appendChild(a);
-            a.click();
+        function exp(){
+            const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+            const url=URL.createObjectURL(b);
+            const a=document.createElement('a');
+            a.href=url;a.download='datos.json';
+            document.body.appendChild(a);a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            alert('✅ datos.json descargado!\n\nAhora:\n1. Ve a tu repo en GitHub\n2. Sube el archivo datos.json\n3. Haz commit');
+            alert('✅ datos.json descargado!\n\nPasos:\n1. Ve a tu repo en GitHub\n2. Sube el archivo datos.json\n3. Commit');
         }
 
-        function importData(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                try {
-                    data = JSON.parse(e.target.result);
-                    localStorage.setItem('est334_works', JSON.stringify(data));
+        function imp(e){
+            const f=e.target.files[0];
+            if(!f)return;
+            const r=new FileReader();
+            r.onload=function(e){
+                try{
+                    d=JSON.parse(e.target.result);
+                    localStorage.setItem('est334_works',JSON.stringify(d));
                     render();
                     alert('✅ Importado');
-                } catch (error) {
-                    alert('❌ Error al importar');
+                }catch(error){
+                    alert('❌ Error');
                 }
             };
-            reader.readAsText(file);
+            r.readAsText(f);
         }
     </script>
 </body>
