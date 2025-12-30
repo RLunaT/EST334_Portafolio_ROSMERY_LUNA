@@ -112,6 +112,57 @@
       "codeUrl": "",
       "dataUrl": "",
       "appUrl": ""
+    },
+    {
+      "id": 1767056718704,
+      "title": "PAPER COMPLETO",
+      "date": "2025-12-22",
+      "description": "artículo completo de la segunda unidad",
+      "tags": [
+        "GOOGLE EARTH ENGINE",
+        "VULNERABILIDAD HIDROMETEOROLÓGICA",
+        "IPCC"
+      ],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/art%C3%ADculo%20segunda%20unidad.pdf",
+      "codeUrl": "",
+      "dataUrl": "",
+      "appUrl": ""
+    },
+    {
+      "id": 1767060790947,
+      "title": "Applicación Google Earth Engine Apps",
+      "date": "2025-12-15",
+      "description": "APLICACIÓN DE VULNERAABILIDAD HIDROMETEOROLÓGICA Y PREDICCCION IPCC EN GEE",
+      "tags": [
+        "GEE",
+        "IPCC"
+      ],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/GEE-%20VULNERABILIDAD%20HIDROMETEOROLOGICA%20-%20RLT.pdf",
+      "codeUrl": "",
+      "dataUrl": "",
+      "appUrl": ""
+    },
+    {
+      "id": 1767061237278,
+      "title": "RESULTADOS DE ARTÍCULO",
+      "date": "2025-12-21",
+      "description": "RESULTADOS EN EL ARTÍCULO",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/RESULTADOS%20-%20ART%C3%8DCULO%20-%20RLT.pdf",
+      "codeUrl": "",
+      "dataUrl": "",
+      "appUrl": ""
+    },
+    {
+      "id": 1767061372304,
+      "title": "DISCUSION Y CONCLUSIONES - ARTÍCULO",
+      "date": "2025-12-21",
+      "description": "DISCUSION Y CONCLUSIONES ARTÍCULO - COMPLETO",
+      "tags": [],
+      "pdfUrl": "https://github.com/RLunaT/EST334_Portafolio_ROSMERY_LUNA/blob/main/LO%20(1).pdf",
+      "codeUrl": "",
+      "dataUrl": "",
+      "appUrl": ""
     }
   ]
 }
